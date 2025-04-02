@@ -16,15 +16,19 @@ end
 
 
 N = 20
-
+# construct a Hamiltonian and an operator
 H = chaotic_chain(N)
 O = chaotic_chain_op(N)
 
 steps = N
-
+# compute the Lanczos coefficients
 b = lanczos(H, O, steps, 2^20)
+
+# construct the open krylov chain and diagonalize it
 L = buildL(b)
 e = eigvals(L)
+
+# plot the liouvillian spectrum
 plt.xlabel("Re ω")
 plt.xlabel("Im ω")
 plt.scatter(real(e), imag(e))
