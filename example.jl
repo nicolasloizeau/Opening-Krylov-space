@@ -15,7 +15,7 @@ function buildL(b)
 end
 
 
-N = 20
+N = 30
 # construct a Hamiltonian and an operator
 H = chaotic_chain(N)
 O = chaotic_chain_op(N)
@@ -30,6 +30,6 @@ e = eigvals(L)
 
 # plot the liouvillian spectrum
 plt.xlabel("Re ω")
-plt.xlabel("Im ω")
+plt.ylabel("Im ω")
 plt.scatter(real(e), imag(e))
-plt.show()
+plt.savefig("example.png", dpi=300)
